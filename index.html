@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Alphabet Scroll</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap">
+  <style>
+    body {
+      background-image: url('./image.png');
+      background-size: cover;
+      background-position: center;
+    }
+    .letter {
+      font-size: 500px;
+      text-align: center;
+      cursor: pointer;
+      font-family: 'Gloria Hallelujah', cursive;
+    }
+  </style>
+  <script>
+    var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    var currentIndex = 0;
+
+    function showLetter() {
+      var letterElement = document.getElementById('letter');
+      letterElement.textContent = alphabet[currentIndex];
+    }
+
+    function nextLetter() {
+      currentIndex = (currentIndex + 1) % alphabet.length;
+      showLetter();
+    }
+
+    window.addEventListener('load', function() {
+      showLetter();
+      var letterElement = document.getElementById('letter');
+      letterElement.addEventListener('click', nextLetter);
+    });
+  </script>
+</head>
+<body>
+  <div class="letter" id="letter"></div>
+</body>
+</html>
